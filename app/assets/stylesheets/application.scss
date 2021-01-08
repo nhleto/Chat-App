@@ -10,8 +10,33 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require main
  *= require_self
  */
 
- @import 'bulma';
+// *{
+//   color: rgb(248, 239, 213);
+// }
+
+.title{
+  font-family: 'Dosis', sans-serif;
+  font-weight: 400;
+  color: rgb(248, 239, 213);
+}
+
+.box{
+  box-shadow: 0 0.5em 1em -0.125em rgba(248, 239, 213, 0.4), 0 0px 0 1px rgba(248, 239, 213, 0.1);
+}
+
+.label{
+  color: rgb(248, 239, 213);
+  font-weight: 400;
+}
+
+a{
+  transition: all .2s ease-in-out;
+}
+
+a:hover{
+  color: rgba(255, 255, 0, 0.507);
+}
