@@ -18,6 +18,41 @@
 //   color: rgb(248, 239, 213);
 // }
 
+// @media (max-width: 1080px){
+
+// }
+
+.button{
+  transition: .2s all ease-in-out;
+}
+
+#flash{
+  margin-left: auto;
+}
+
+.container{
+  margin: 0px;
+}
+
+.notification{
+  display: flex;
+  justify-content: space-between;
+}
+
+.odin-test{
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  width: 80%;
+}
+
+.hide-flash {
+  opacity: 0;
+  transition: 0.5s ease;
+  margin: 0px auto
+}
+
 .title{
   font-family: 'Dosis', sans-serif;
   font-weight: 400;
@@ -25,7 +60,8 @@
 }
 
 .box{
-  box-shadow: 0 0.5em 1em -0.125em rgba(248, 239, 213, 0.4), 0 0px 0 1px rgba(248, 239, 213, 0.1);
+  box-shadow: none;
+  border: 1px solid silver;
 }
 
 .label{

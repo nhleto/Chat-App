@@ -15,3 +15,14 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener('turbolinks:load', () => {
+  (document.querySelectorAll('.odin-test .notification') || []).forEach(($delete) => {
+    let $notification = $delete.parentNode;
+    console.log($notification)
+
+    $delete.addEventListener('click', () => {
+      $notification.classList.add('hide-flash');
+    });
+  });
+});

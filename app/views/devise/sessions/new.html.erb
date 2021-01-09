@@ -10,6 +10,7 @@
 
           <%= f.input :username,
                     wrapper: false,
+                    required: false,
                     label_html: { class: 'label' },
                     input_html: { class: 'input' } %>
         </div>
@@ -27,7 +28,7 @@
       
       <%= render 'devise/shared/sign-in-links' %>
 
-      <%= f.button :submit, "Sign in", class:'button mb-5 sign-in-button' %>
+      <%= f.button :submit, "Sign in", class:'button is-dark is-inverted is-outlined mb-5 sign-in-button' %>
 <%
 =begin%>
  
