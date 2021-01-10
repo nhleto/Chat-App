@@ -25,4 +25,22 @@ document.addEventListener('turbolinks:load', () => {
       $notification.classList.add('hide-flash');
     });
   });
-});
+
+  function dropdown(event){
+    event.stopPropagation();
+    document.querySelector('.dropdown-content').classList.toggle('show')
+  }
+
+  function rotate(event){
+    event.stopPropagation();
+    document.querySelector('.fa-caret-down').classList.toggle('down')
+  }
+
+  document.querySelector('.dropbtn').addEventListener('click', dropdown)
+  document.querySelector('.dropbtn').addEventListener('click', rotate)
+
+  window.onclick = function(event) {
+    document.querySelector(".fa-caret-down").classList.remove("down")
+    document.getElementById("myDropdown").classList.remove("show")
+  };
+})
