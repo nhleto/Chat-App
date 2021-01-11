@@ -9,6 +9,14 @@ class User < ApplicationRecord
   has_many :rooms, through: :memberships
   validates :username, presence: { message: 'Please provide a username...' }
 
+  def is_online
+    update_attributes(online: true)
+  end
+
+  def is_offline
+    update_attributes(online: false)
+  end
+
   # allows devise to skip email validation, instad use username
   def email_required?
     false

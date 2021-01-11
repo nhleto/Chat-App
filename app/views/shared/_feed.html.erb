@@ -1,8 +1,8 @@
 <div class="display">
   <%= render 'shared/rooms-sidebar' %>
 
-  <div class="room ml-3">
-    <div id="message-display">
+  <div class="room ml-3 mr-3">
+    <div class='box' id="message-display">
       <% if @messages %>
         <% @messages.each do |message| %>
           <article class="message">
@@ -36,4 +36,5 @@
       <%= f.hidden_field :room_id, value: @room.id %>
     <% end %>
   </div>
+  <%= render 'shared/users' %>
 </div>

@@ -5,15 +5,22 @@
 
 #message-display {
   height: 60vh;
-  overflow: auto
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 #message-input {
   width: 60vw;
 }
 
+.message{
+  margin-bottom: 5px;
+}
+
 .message-header{
   font-size: 20px;
+  justify-content: flex-start;
 }
 
 // @media only screen and (max-width: 1080px){
@@ -34,6 +41,11 @@
 
 .rooms.box{
   margin: 0px;
+}
+
+.time{
+  font-size: 13px;
+  margin-left: 15px;
 }
 
 .panel{

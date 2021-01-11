@@ -1,0 +1,7 @@
+<div class="box">
+  <% if @users %>
+    <% @users.each do |user| %>
+      <p><%= user.username %></p>
+    <% end %>
+  <% end %>
+</div>

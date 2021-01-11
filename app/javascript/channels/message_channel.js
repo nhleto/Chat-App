@@ -1,4 +1,5 @@
 import consumer from "./consumer"
+import moment from 'moment'
 
 consumer.subscriptions.create("MessageChannel", {
   connected() {
@@ -11,12 +12,13 @@ consumer.subscriptions.create("MessageChannel", {
 
   received(data) {
     const messageDisplay = document.querySelector('#message-display')
-    messageDisplay.insertAdjacentHTML('beforeend', this.template(data))
+    messageDisplay.insertAdjacentHTML('afterbegin', this.template(data))
   },
   template(data) {
     return `<article class="message">
               <div class="message-header">
                 <p>${data.user.username}</p>
+                <p class='time'>${moment(this.textContent).fromNow()}</p>
               </div>
               <div class="message-body">
                 <p>${data.body}</p>

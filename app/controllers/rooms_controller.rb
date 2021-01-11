@@ -1,9 +1,10 @@
 class RoomsController < ApplicationController
   def index
     @message = Message.new
-    @messages = Message.where(room_id: nil)
+    @messages = Message.where(room_id: nil).reverse_order
     @rooms = Room.all
     @room = Room.new
+    @users = User.all
   end
 
   def new
@@ -12,7 +13,9 @@ class RoomsController < ApplicationController
 
   def create
     @room = current_user.rooms.build(room_params)
+    @room.owner_id = current_user.id
     if @room.save
+      @room.memberships.create(room_id: @room.id, user_id: current_user.id)
       flash[:notice] = 'New room created'
       redirect_to @room
     else
@@ -24,7 +27,8 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @message = Message.new
-    @messages = Message.where(room_id: @room.id)
+    @messages = Message.where(room_id: @room.id).reverse_order
+    @users = User.all
   end
 
   private
