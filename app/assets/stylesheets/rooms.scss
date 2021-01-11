@@ -35,3 +35,20 @@
 .rooms.box{
   margin: 0px;
 }
+
+.panel{
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: 1s ease;
+  opacity: 0;
+  width: 100%;
+}
+
+.panel.show{
+  opacity: 1;
+  max-height: 500px;
+  max-width: 500px;
+  position: relative;
+  width: 100%;
+}

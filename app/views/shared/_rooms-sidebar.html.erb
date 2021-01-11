@@ -1,3 +1,19 @@
 <div class="rooms box">
-  Rooms pog
+  All Rooms
+  <p><%= link_to 'Home Room', root_path %></p>
+  <% if @rooms %>
+    <% @rooms.each do |room| %>
+      <p><%= link_to room.name, room_path(room) %></p>
+    <% end %>
+  <% end %>
+  <button class="button is-dark is-small is-rounded accordion">New Room</button>
+  <div class="panel">
+    <% if !@room.id %>
+      <%= simple_form_for(@room) do |f| %>
+        <%= f.input :name,
+            wrapper: false %>
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
