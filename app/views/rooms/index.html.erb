@@ -1,0 +1,38 @@
+<div class="display">
+  <%= render 'shared/rooms-sidebar' %>
+
+  <div class="room ml-3">
+    <div id="message-display">
+      <% if @messages %>
+        <% @messages.each do |message| %>
+          <article class="message">
+            <div class="message-header">
+              <%= message.user.username %>
+              <div class="time">
+                <%= distance_of_time_in_words(message.created_at, Time.now) %> ago
+              </div>
+            </div>
+            <div class="message-body">
+              <%= message.body %>
+            </div>
+          </article>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= simple_form_for(@message) do |f| %>
+      <div class="field has-addons" style='align-items:flex-end'>
+        <div class="control mt-3">
+          <%= f.input :body, 
+              input_html: { id: 'message-input', class: 'input' },
+              label: false,
+              wrapper: false %>
+        </div>
+        <div class="control">
+          <%= f.button :button, 
+              class: 'button is-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

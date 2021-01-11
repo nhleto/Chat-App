@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
+  has_many :messages
   validates :username, presence: { message: 'Please provide a username...' }
 
   # allows devise to skip email validation, instad use username

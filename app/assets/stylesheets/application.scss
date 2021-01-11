@@ -18,9 +18,17 @@
 //   color: rgb(248, 239, 213);
 // }
 
-// @media (max-width: 1080px){
+@media only screen and (max-width: 1080px){
+  .nav{
+    margin: 0px;
+  }
+}
 
-// }
+@media only screen and (min-width: 1080px){
+  .nav{
+    margin: 0px 100px;
+  }
+}
 
 .button{
   transition: .2s all ease-in-out;
@@ -81,14 +89,14 @@ a:hover{
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid silver;
-  margin: 0px 100px;
 }
 
 .dropbtn{
+  transition: .3s all ease-in-out;
   cursor: pointer;
   border-left: 1px solid silver;
   border-right: 1px solid silver;
-  margin-top: 10px;
+  // margin-top: 10px;
 }
 
 .dropdown{
@@ -122,7 +130,7 @@ a:hover{
   align-items: center;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover, .dropbtn:hover{
   background-color: #44444469;
 }
 
