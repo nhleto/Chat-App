@@ -26,11 +26,12 @@
           <%= f.input :body, 
               input_html: { id: 'message-input', class: 'input' },
               label: false,
-              wrapper: false %>
+              wrapper: false,
+              placeholder: 'Say something!' %>
         </div>
         <div class="control">
           <%= f.button :button, 
-              class: 'button is-primary' %>
+              class: 'button is-primary submitter' %>
         </div>
       </div>
       <%= f.hidden_field :room_id, value: @room.id %>

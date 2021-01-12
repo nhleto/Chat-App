@@ -64,3 +64,11 @@
   position: relative;
   width: 100%;
 }
+
+.fa-circle{
+  font-size:10px;
+  color: gray;
+  &.online{
+    color: rgb(47, 255, 64);
+  }
+}

@@ -3,6 +3,7 @@ import consumer from "./consumer"
 consumer.subscriptions.create("AppearanceChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
+    this.perform('appear')
   },
 
   disconnected() {
@@ -10,6 +11,16 @@ consumer.subscriptions.create("AppearanceChannel", {
   },
 
   received(data) {
-    // Called when there's incoming data on the websocket for this channel
+    // addEventListener('turbolinks:load', ()=>{
+      
+    // })
+    window.elements = data
+    console.log(data)
+    let userDot = document.querySelector(`.user-${data.id}-status`)
+    if (data.online === true){
+      userDot.classList.add('online')
+    } else {
+      userDot.classList.remove('online')
+    }
   }
 });

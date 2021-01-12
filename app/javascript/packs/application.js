@@ -78,4 +78,10 @@ document.addEventListener('turbolinks:load', () => {
 
   document.querySelector('.accordion').addEventListener('click', closeRoomText)
 
+  document.querySelector('.submitter').addEventListener('click', ()=> {
+    setTimeout(() => {
+      let input = document.querySelector('#message-input')
+      input.value = ''
+    }, 100);
+  })
 });

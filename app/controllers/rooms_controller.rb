@@ -26,6 +26,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @rooms = Room.all
     @message = Message.new
     @messages = Message.where(room_id: @room.id).reverse_order
     @users = User.all

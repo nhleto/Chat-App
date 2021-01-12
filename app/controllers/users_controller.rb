@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.rooms << Room.find(1)
       flash[:notice] = 'User created successfully!'
       redirect_to root_path
     else

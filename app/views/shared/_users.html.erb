@@ -1,7 +1,10 @@
 <div class="box">
   <% if @users %>
     <% @users.each do |user| %>
-      <p><%= user.username %></p>
+      <span style='display:flex;align-items:center'>
+        <i class="fa fa-circle user-<%= user.id %>-status mr-1"></i>
+        <p><%= user.username %></p>
+      </span>
     <% end %>
   <% end %>
 </div>
