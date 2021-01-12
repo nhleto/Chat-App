@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   def index
     @message = Message.new
-    @messages = Message.where(room_id: nil).reverse_order
+    @messages = Message.includes(:user).where(room_id: nil).reverse_order
     @rooms = Room.all
     @room = Room.new
     @users = User.all

@@ -2,7 +2,7 @@
   <% if @users %>
     <% @users.each do |user| %>
       <span style='display:flex;align-items:center'>
-        <i class="fa fa-circle user-<%= user.id %>-status mr-1"></i>
+        <i class="fa fa-circle user-<%= user.id %>-status mr-1 <%= "online" if user.online %>"></i>
         <p><%= user.username %></p>
       </span>
     <% end %>

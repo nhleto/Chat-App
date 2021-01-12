@@ -11,9 +11,6 @@ consumer.subscriptions.create("AppearanceChannel", {
   },
 
   received(data) {
-    // addEventListener('turbolinks:load', ()=>{
-      
-    // })
     window.elements = data
     console.log(data)
     let userDot = document.querySelector(`.user-${data.id}-status`)
