@@ -20,22 +20,7 @@
       <% end %>
     </div>
 
-    <%= simple_form_for(@message) do |f| %>
-      <div class="field has-addons" style='align-items:flex-end'>
-        <div class="control mt-3">
-          <%= f.input :body, 
-              input_html: { id: 'message-input', class: 'input' },
-              label: false,
-              wrapper: false,
-              placeholder: 'Say something!' %>
-        </div>
-        <div class="control">
-          <%= f.button :button, 
-              class: 'button is-primary submitter' %>
-        </div>
-      </div>
-      <%= f.hidden_field :room_id, value: @room.id %>
-    <% end %>
+  <%= render 'shared/message-form' %>
   </div>
   <%= render 'shared/users' %>
-</div>
+</div> 

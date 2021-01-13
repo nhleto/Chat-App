@@ -1,18 +1,20 @@
 <div class="rooms box">
   <h3 class="title is-3">All Rooms</h3>
-  <p><%= link_to 'Home Room', root_path %></p>
+  <p class='room-title'><%= link_to 'Home Room', root_path %></p>
     <% @rooms.each do |room| %>
-      <p><%= link_to room.name, room_path(room) %></p>
+      <p class='room-title'><%= link_to room.name, room_path(room) %>
+        <span><small><%= room.users.uniq.size %><%= pluralize(room.users.uniq.size, 'Member') %></small></span>
+      </p>
     <% end %>
-  <button class="button is-dark is-small accordion mt-4">New Room</button>
-  <div class="panel">
-    <% if !@room.id %>
-      <%= simple_form_for(@room) do |f| %>
-        <%= f.input :name,
-            wrapper: false,
-            label_html: { class: 'label' } %><br />
-        <%= f.submit %>
-      <% end %>
-    <% end %>
-  </div>
+  <% if !@room.id %>
+    <button class="button is-dark is-small accordion mt-4">New Room</button>
+    <div class="panel">
+        <%= simple_form_for(@room) do |f| %>
+          <%= f.input :name,
+              wrapper: false,
+              label_html: { class: 'label' } %><br />
+          <%= f.submit %>
+        <% end %>
+    </div>
+  <% end %>
 </div>

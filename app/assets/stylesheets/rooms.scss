@@ -23,16 +23,6 @@
   justify-content: flex-start;
 }
 
-// @media only screen and (max-width: 1080px){
-
-// }
-
-// @media only screen and (min-width: 1080px){
-//   .room{
-//     margin-left: 200px;
-//   }
-// }
-
 .display{
   display: flex;
   justify-content: center;
@@ -41,6 +31,16 @@
 
 .rooms.box{
   margin: 0px;
+  .room-title{
+    background-color: dimgray;
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    box-shadow: 2px 0em 1em -0.125em rgba(0, 0, 0, .6), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  }
+  .room-title:not(:last-child){
+    margin-bottom: 10px;
+  }
 }
 
 .time{

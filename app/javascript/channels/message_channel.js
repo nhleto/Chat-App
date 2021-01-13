@@ -15,7 +15,7 @@ consumer.subscriptions.create("MessageChannel", {
     messageDisplay.insertAdjacentHTML('afterbegin', this.template(data))
   },
   template(data) {
-    return `<article class="message mb-1">
+    return `<article class="message mb-2">
               <div class="message-header">
                 <p>${data.user.username}</p>
                 <p class='time'>${moment(this.textContent).fromNow()}</p>

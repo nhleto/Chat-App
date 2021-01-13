@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
     @messages = Message.includes(:user).where(room_id: nil).reverse_order
     @rooms = Room.all
     @room = Room.new
-    @users = User.all
+    @users = User.all.order('online DESC NULLS LAST')
   end
 
   def new
@@ -26,10 +26,10 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @rooms = Room.all
+    @rooms = Room.includes(:users).includes(:messages)
     @message = Message.new
-    @messages = Message.where(room_id: @room.id).reverse_order
-    @users = User.all
+    @messages = Message.includes(:user).where(room_id: @room.id).reverse_order
+    @users = User.all.order('online DESC NULLS LAST')
   end
 
   private
