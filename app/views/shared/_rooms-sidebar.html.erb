@@ -1,10 +1,13 @@
 <div class="rooms box">
   <h3 class="title is-3">All Rooms</h3>
-  <p class='room-title'><%= link_to 'Home Room', root_path %></p>
+  <h5 class='title is-5 room-title <%= 'picked' if current_page?('/') %>'><%= link_to 'Home Room', root_path %></h5>
     <% @rooms.each do |room| %>
-      <p class='room-title'><%= link_to room.name, room_path(room) %>
-        <span><small><%= room.users.uniq.size %><%= pluralize(room.users.uniq.size, 'Member') %></small></span>
-      </p>
+      <div class="room-title <%= picked_room(room) %>">
+        <%= link_to room_path(room) do %>
+          <h5 class="title is-5 mb-0"><%= room.name %></h5>
+          <span><small><%= room.users.uniq.size %><%= pluralize(room.users.uniq.size, 'Member') %></small></span>
+        <% end %>
+      </div>
     <% end %>
   <% if !@room.id %>
     <button class="button is-dark is-small accordion mt-4">New Room</button>
@@ -13,7 +16,8 @@
           <%= f.input :name,
               wrapper: false,
               label_html: { class: 'label' } %><br />
-          <%= f.submit %>
+          <%= f.submit 'Create Room', 
+              class: "button is-dark is-small mt-1" %>
         <% end %>
     </div>
   <% end %>

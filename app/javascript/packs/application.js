@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import moment from 'moment/moment'
+import moment from 'moment'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -16,6 +16,8 @@ import moment from 'moment/moment'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
 
 document.addEventListener('turbolinks:load', () => {
   (document.querySelectorAll('.odin-test .notification') || []).forEach(($delete) => {
@@ -29,6 +31,7 @@ document.addEventListener('turbolinks:load', () => {
 
   function dropdown(event){
     event.stopPropagation();
+    document.querySelector('.dropdown-items').classList.toggle('show')
     document.querySelector('.dropdown-content').classList.toggle('show')
   }
 
@@ -43,6 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   window.onclick = function(event) {
     document.querySelector(".fa-caret-down").classList.remove("down")
     document.getElementById("myDropdown").classList.remove("show")
+    document.querySelector('.dropdown-items').classList.remove('show')
   };
 
   let acc = document.getElementsByClassName("accordion");
@@ -80,6 +84,18 @@ document.addEventListener('turbolinks:load', () => {
   if(accordion){
     accordion.addEventListener('click', closeRoomText)
   }
+
+  // function highlightBorder(){
+  //   let elems = document.querySelectorAll('.room-title')
+  //   elems.forEach(elem => {
+  //     elem.classList.remove('picked')
+  //   });
+  //   this.classList.add('picked')
+  // };
+
+  // document.querySelectorAll('.room-title').forEach(element => {
+  //   element.addEventListener('click', highlightBorder)
+  // }); 
 
   document.querySelector('.submitter').addEventListener('click', ()=> {
     setTimeout(() => {

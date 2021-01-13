@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :memberships
   has_many :rooms, through: :memberships
-  validates :username, presence: { message: 'Please provide a username...' }
+  validates :username, presence: { message: 'Please provide a username...' },
+                       uniqueness: { message: 'That name is already in use' }
 
   def is_online
     update_attributes(online: true)

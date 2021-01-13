@@ -3,6 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+@media only screen and (max-width: 1080px){
+  .rooms.box{
+    max-height: 500px;
+  }
+}
+
+@media only screen and (min-width: 1080px){
+  .rooms.box{
+    max-height: 650px;
+  }
+}
+
 #message-display {
   height: 60vh;
   overflow: auto;
@@ -31,12 +43,19 @@
 
 .rooms.box{
   margin: 0px;
+  overflow-y: auto;
   .room-title{
+    transition: .2s all ease-in-out;
     background-color: dimgray;
     border-radius: 10px;
     padding: 10px;
     display: grid;
     box-shadow: 2px 0em 1em -0.125em rgba(0, 0, 0, .6), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+    font-family: 'Dosis', sans-serif;
+    width: 100%;
+    &.picked{
+      border-left: 5px solid aliceblue;
+    }
   }
   .room-title:not(:last-child){
     margin-bottom: 10px;
@@ -72,3 +91,18 @@
     color: rgb(47, 255, 64);
   }
 }
+
+// .picker{
+//   display: flex;
+//   .white-bar{
+//     border-left: 4px solid aliceblue;
+//     max-height: 55px;
+//     position: relative;
+//     // top: 5px;
+//     // left: -20px
+//   }  
+// }
+
+// .picker:not(:last-child){
+//   margin-bottom: 10px;
+// }
