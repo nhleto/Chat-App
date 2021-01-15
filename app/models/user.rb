@@ -11,11 +11,11 @@ class User < ApplicationRecord
                        uniqueness: { message: 'That name is already in use' }
 
   def is_online
-    update_attributes(online: true)
+    update(online: true)
   end
 
   def is_offline
-    update_attributes(online: false)
+    update(online: false)
   end
 
   # allows devise to skip email validation, instad use username
