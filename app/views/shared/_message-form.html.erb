@@ -1,4 +1,4 @@
-<%= simple_form_for(@message) do |f| %>
+<%= simple_form_for([@room, @message]) do |f| %>
   <div class="field has-addons" style='align-items:flex-end'>
     <div class="control mt-3">
       <%= f.input :body, 
@@ -12,5 +12,9 @@
           class: 'button is-primary submitter' %>
     </div>
   </div>
-  <%= f.hidden_field :room_id, value: @room.id %>
+  <%
+=begin%>
+ <%= f.hidden_field :room_id, value: @room.id %> 
+<%
+=end%>
 <% end %>

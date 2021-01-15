@@ -1,7 +1,5 @@
 <div class="rooms box">
   <h3 class="title is-3">All Rooms</h3>
-  <%= @room.id %>
-  <h5 class='title is-5 room-title <%= 'picked' if current_page?('/') %>'><%= link_to 'Home Room', root_path %></h5>
     <% @rooms.each do |room| %>
       <div class="room-title <%= picked_room(room) %>">
         <%= link_to room_path(room) do %>
@@ -10,10 +8,10 @@
         <% end %>
       </div>
     <% end %>
-  <% if !@room.id %>
+  <% if @room.id == Room.first.id || !@room.id %>
     <button class="button is-dark is-small accordion mt-4">New Room</button>
     <div class="panel">
-        <%= simple_form_for(@room) do |f| %>
+        <%= simple_form_for(Room.new) do |f| %>
           <%= f.input :name,
               wrapper: false,
               label_html: { class: 'label' } %><br />

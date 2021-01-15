@@ -1,8 +1,9 @@
 import consumer from "./consumer"
+import moment from 'moment'
 
 consumer.subscriptions.create({channel: "RoomChannel", room: parseURL() }, {
   connected() {
-    // console.log(this)
+    console.log('Connected!')
   },
 
   disconnected() {
@@ -12,15 +13,28 @@ consumer.subscriptions.create({channel: "RoomChannel", room: parseURL() }, {
   received(data) {
     // Called when there's incoming data on the websocket for this channel
     console.log(data)
-    window.elements = data
+    this.perform('receive')
+    const messageDisplay = document.querySelector('#message-display')
+    messageDisplay.insertAdjacentHTML('afterbegin', this.template(data))
+
     let memberDiv = document.querySelector(`.room-${data.room.id}-members`)
     let memberNums = parseInt(document.querySelector(`.room-${data.room.id}-members`).innerHTML.match(/\d+/))
-    // console.log(memberNums)
-    if (data.user.length !== memberNums){
-      let difference = data.user.length - memberNums
-      console.log(data.user.length, memberNums, difference)
-      memberDiv.innerHTML = `${data.user.length} Members`
+    if (data.users.length !== memberNums){
+      let difference = data.users.length - memberNums
+      console.log(data.users.length, memberNums, difference)
+      memberDiv.innerHTML = `${data.users.length} Members`
     }
+  },
+  template(data) {
+    return `<article class="message mb-2">
+              <div class="message-header">
+                <p>${data.user.username}</p>
+                <p class='time'>${moment(this.textContent).fromNow()}</p>
+              </div>
+              <div class="message-body">
+                <p>${data.message.body}</p>
+              </div>
+            </article>`
   }
 });
 
