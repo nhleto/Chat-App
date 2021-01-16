@@ -14,11 +14,13 @@ consumer.subscriptions.create("AppearanceChannel", {
   received(data) {
     // console.log(data)
     // window.elements = data
-    let userDot = document.querySelector(`.user-${data.id}-status`)
-    if (data.online == true){
-      userDot.classList.add('online')
-    } else {
-      userDot.classList.remove('online')
+    if (document.querySelector(`.user-${data.id}-status`)){
+      let userDot = document.querySelector(`.user-${data.id}-status`)
+      if (data.online == true){
+        userDot.classList.add('online')
+      } else {
+        userDot.classList.remove('online')
+      }
     }
   }
 });

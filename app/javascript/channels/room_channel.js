@@ -13,17 +13,18 @@ document.addEventListener('turbolinks:load', ()=>{
   
     received(data) {
       // Called when there's incoming data on the websocket for this channel
-      let array = []
-      array.push(data)
-      window.elements = array
       console.log(data)
+      let memberDiv = document.querySelector(`.room-${data.room.id}-members`)
+      let roomsBox = document.querySelector('.rooms.box.left .center')
       const messageDisplay = document.querySelector('#message-display')
       messageDisplay.insertAdjacentHTML('afterbegin', this.template(data))
   
-      let memberDiv = document.querySelector(`.room-${data.room.id}-members`)
-      let memberNums = parseInt(document.querySelector(`.room-${data.room.id}-members`).innerHTML.match(/\d+/))
-      if (data.users.length !== memberNums){
-        memberDiv.innerHTML = `${data.users.length} Members`
+      if (document.querySelector(`.room-${data.room.id}-members`)){
+        let memberNums = parseInt(document.querySelector(`.room-${data.room.id}-members`).innerHTML.match(/\d+/))
+        if (data.users.length !== memberNums){
+          memberDiv.innerHTML = `${data.users.length} Members`
+          roomsBox.insertAdjacentHTML('afterend', this.template2(data))
+        }
       }
     },
     template(data) {
@@ -36,6 +37,12 @@ document.addEventListener('turbolinks:load', ()=>{
                   <p>${data.message.body}</p>
                 </div>
               </article>`
+    },
+    template2(data){
+      return `<span class='center'>
+                <i class="fa fa-circle online"></i>
+                <p class='ml-1'>${data.user.username}</p> 
+              </span>`
     }
   });
   

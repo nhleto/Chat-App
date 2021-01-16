@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
       flash[:notice] = 'New room created'
       redirect_to @room
     else
-      flash[:alert] = 'Failed to create room'
+      flash[:alert] = @room.errors.first[1]
       redirect_to request.referrer
     end
   end
@@ -25,9 +25,9 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @rooms = Room.includes(:users)
     @message = Message.new
-    @messages = @room.messages.includes(:user).where(room_id: @room.id).reverse_order
+    @messages = @room.messages.where(room_id: @room.id).reverse_order
     @users = @room.users.order('online DESC NULLS LAST')
-    # RoomChannel.broadcast_to(@room, user: current_user, users: @users.uniq, room: @room)
+    @all_users = User.all.order('online DESC NULLS LAST')
   end
 
   private

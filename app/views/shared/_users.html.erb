@@ -1,11 +1,20 @@
-<div class="rooms box">
-  <h3 class="title is-3 mb-1"><%= 'All' if !@room.id %> Members</h3>
+<div class="rooms box left">
+  <h3 class="title is-3 mb-1"><%= 'All' if @room.id == Room.first.id %> Users</h3>
   <% if @users %>
-    <% @users.uniq.each do |user| %>
-      <span class='center'>
-        <i class="fa fa-circle user-<%= user.id %>-status mr-1 <%= "online" if user.online %>"></i>
-        <p><%= user.username %></p>
-      </span>
+    <% if @room.id == Room.first.id %>
+      <% @all_users.each do |user| %>
+        <span class='center'>
+          <i class="fa fa-circle user-<%= user.id %>-status mr-1 <%= "online" if user.online %>"></i>
+          <p><%= user.username %></p>
+        </span>
+      <% end %>
+    <% else %>
+      <% @users.uniq.each do |user| %>
+        <span class='center'>
+          <i class="fa fa-circle user-<%= user.id %>-status mr-1 <%= "online" if user.online %>"></i>
+          <p><%= user.username %></p>
+        </span>      
+      <% end %>
     <% end %>
   <% end %>
 </div>
