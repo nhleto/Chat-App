@@ -22,7 +22,6 @@ import moment from 'moment'
 document.addEventListener('turbolinks:load', () => {
   (document.querySelectorAll('.odin-test .notification') || []).forEach(($delete) => {
     let $notification = $delete.parentNode;
-    console.log($notification)
 
     $delete.addEventListener('click', () => {
       $notification.classList.add('hide-flash');
@@ -84,18 +83,6 @@ document.addEventListener('turbolinks:load', () => {
   if(accordion){
     accordion.addEventListener('click', closeRoomText)
   }
-
-  // function highlightBorder(){
-  //   let elems = document.querySelectorAll('.room-title')
-  //   elems.forEach(elem => {
-  //     elem.classList.remove('picked')
-  //   });
-  //   this.classList.add('picked')
-  // };
-
-  // document.querySelectorAll('.room-title').forEach(element => {
-  //   element.addEventListener('click', highlightBorder)
-  // }); 
 
   document.querySelector('.submitter').addEventListener('click', ()=> {
     setTimeout(() => {

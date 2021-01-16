@@ -27,6 +27,7 @@ class RoomsController < ApplicationController
     @message = Message.new
     @messages = @room.messages.includes(:user).where(room_id: @room.id).reverse_order
     @users = @room.users.order('online DESC NULLS LAST')
+    # RoomChannel.broadcast_to(@room, user: current_user, users: @users.uniq, room: @room)
   end
 
   private

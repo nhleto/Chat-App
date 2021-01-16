@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable
 
   has_many :messages, dependent: :destroy
-  # has_many :memberships
   has_many :rooms, through: :messages
   validates :username, presence: { message: 'Please provide a username...' },
                        uniqueness: { message: 'That name is already in use' }

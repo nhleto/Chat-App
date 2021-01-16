@@ -4,9 +4,7 @@ class MessagesController < ApplicationController
     @message = @room.messages.new(message_params)
     @message.user = current_user
     @message.save
-    room = Room.find_by(id: @message.room_id)
-    RoomChannel.broadcast_to(room, user: @message.user, users: room.users.uniq, room: room, message: @message)
-    # ActionCable.server.broadcast('message', @message.as_json(include: :user))
+    RoomChannel.broadcast_to(@room, user: current_user, users: @room.users.uniq, room: @room, message: @message)
   end
 
   private
