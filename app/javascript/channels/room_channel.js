@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', ()=>{
     },
     template2(data){
       return `<span class='center'>
-                <i class="fa fa-circle online"></i>
+                <i class="fa fa-circle user-${data.user.id}-status online"></i>
                 <p class='ml-1'>${data.user.username}</p> 
               </span>`
     }
