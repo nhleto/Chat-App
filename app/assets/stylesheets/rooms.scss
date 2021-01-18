@@ -7,6 +7,9 @@
   .rooms.box{
     max-height: 500px;
   }
+  .rooms.box, .rooms.box.left{
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1080px){

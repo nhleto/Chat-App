@@ -1,15 +1,18 @@
-<%= simple_form_for([@room, @message]) do |f| %>
-  <div class="field has-addons" style='align-items:flex-end'>
-    <div class="control mt-3">
-      <%= f.input :body, 
-          input_html: { id: 'message-input', class: 'input' },
-          label: false,
-          wrapper: false,
-          placeholder: 'Say something!' %>
+<div>
+  <%= simple_form_for([@room, @message]) do |f| %>
+    <div class="field has-addons" style='align-items:flex-end'>
+      <div class="control mt-3">
+        <%= f.input :body, 
+            input_html: { id: 'message-input', class: 'input' },
+            label: false,
+            wrapper: false,
+            placeholder: 'Say something!' %>
+      </div>
+      <div class="control">
+        <%= f.button :button,
+            class: 'button is-primary is-outlined submitter',
+            style: 'width: 8em;' %>
+      </div>
     </div>
-    <div class="control">
-      <%= f.button :button,
-          class: 'button is-primary is-outlined submitter' %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

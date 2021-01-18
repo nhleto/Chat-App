@@ -1,0 +1,22 @@
+<div class="room ml-3 mr-3">
+  <h2 class="title is-2 mb-0 is-flex is-justify-content-center room-name">Welcome to:&nbsp;&nbsp;<span class='room-name-squid'><%= @room.name %></span></h2>
+  <div class='box mb-1' id="message-display">
+    <% if @messages %>
+      <% @messages.each do |message| %>
+        <article class="message">
+          <div class="message-header">
+            <%= message.user.username %>
+            <div class="time">
+              <%= distance_of_time_in_words(message.created_at, Time.now) %> ago
+            </div>
+          </div>
+          <div class="message-body">
+            <%= message.body %>
+          </div>
+        </article>
+      <% end %>
+    <% end %>
+  </div>
+<%= render 'shared/message-form' %>
+</div>
+<%= render 'shared/users-list' %>

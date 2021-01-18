@@ -1,0 +1,13 @@
+<% if @room.id == Room.first.id || !@room.id %>
+  <button class="button is-dark is-small accordion mt-4">New Room</button>
+  <div class="panel">
+      <%= simple_form_for(Room.new) do |f| %>
+        <%= f.input :name,
+            wrapper: false,
+            required: false,
+            label_html: { class: 'label' } %><br />
+        <%= f.submit 'Create Room', 
+            class: "button is-dark is-small mt-1" %>
+      <% end %>
+  </div>
+<% end %>

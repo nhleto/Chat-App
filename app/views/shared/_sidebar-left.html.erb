@@ -1,0 +1,15 @@
+<div class="sidebar" id='mySidebar'>  
+  <a href="javascript:void(0)" class="closebtn">&times;</a>
+  <h3 class="title is-3 ml-5 mb-5">All Rooms</h3>
+  <% @rooms.each do |room| %>
+    <%= link_to room_path(room), data: { turbolinks: "false" } do %>
+      <h4 class="title is-4 mb-0"><%= room.name %></h4>
+      <% unless room.name == 'Home Room' %>
+        <span><small class="room-<%= room.id %>-members"><%= room.users.uniq.size %><%= pluralize(room.users.uniq.size, 'Member') %></small></span>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="rooms-form">
+    <%= render "shared/rooms-form" %>
+  </div>
+</div>
