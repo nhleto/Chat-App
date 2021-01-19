@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :rooms, only: %i[create destroy show destroy] do
     resources :messages, only: [:create]
   end
+  mount ActionCable.server => '/cable'
 end
