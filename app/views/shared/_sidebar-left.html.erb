@@ -2,8 +2,16 @@
   <a href="javascript:void(0)" class="closebtn">&times;</a>
   <h3 class="title is-3 ml-5 mb-5">All Rooms</h3>
   <% @rooms.each do |room| %>
+    <% if current_user.id == room.owner_id && room.id != Room.first.id %>
+      <div class='mr-2' style='float:right;'>
+        <span class='accordion1 p-2'>&#8230;</span>
+        <%= link_to room_path(room), method: :delete do %>
+          <button class="button is-warning is-light is-small is-outlined panel1">Destroy</button>
+        <% end %>
+      </div>
+    <% end %>
     <%= link_to room_path(room), data: { turbolinks: "false" } do %>
-      <h4 class="title is-4 mb-0"><%= room.name %></h4>
+      <h4 class="title is-4 mb-0 <%= picked_room(room) %>"><%= room.name %></h4>
       <% unless room.name == 'Home Room' %>
         <span><small class="room-<%= room.id %>-members"><%= room.users.uniq.size %><%= pluralize(room.users.uniq.size, 'Member') %></small></span>
       <% end %>

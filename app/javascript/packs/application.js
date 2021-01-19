@@ -49,6 +49,8 @@ document.addEventListener('turbolinks:load', () => {
 
   let acc = document.getElementsByClassName("accordion");
   let panel = document.getElementsByClassName('panel');
+  let acc1 = document.getElementsByClassName("accordion1");
+  let panel1 = document.getElementsByClassName('panel1');
 
   for (let i = 0; i < acc.length; i++) {
     acc[i].onclick = function () {
@@ -68,6 +70,26 @@ document.addEventListener('turbolinks:load', () => {
       els[i].classList[fnName](className);
     }
   }
+
+  for (let i = 0; i < acc1.length; i++) {
+    acc1[i].onclick = function () {
+      let setClasses = !this.classList.contains('active');
+      setClass(acc1, 'active', 'remove');
+      setClass(panel1, 'show', 'remove');
+
+      if (setClasses) {
+        this.classList.toggle("active");
+        this.nextElementSibling.children[0].classList.toggle("show");
+      }
+    }
+  }
+
+  function setClass(els, className, fnName) {
+    for (let i = 0; i < els.length; i++) {
+      els[i].classList[fnName](className);
+    }
+  }
+
 
   function closeRoomText(){
     const buttonText = document.querySelector('.accordion')

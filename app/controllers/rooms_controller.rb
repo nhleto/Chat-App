@@ -30,6 +30,13 @@ class RoomsController < ApplicationController
     @all_users = User.all.order('online DESC NULLS LAST')
   end
 
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    flash[:alert] = "Deleted #{@room.name}"
+    redirect_to root_path
+  end
+
   private
 
   def room_params

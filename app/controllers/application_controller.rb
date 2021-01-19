@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :default_room
   before_action :authenticate_user!
+  before_action :default_room
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def find_first_rooom
     @room = Room.first

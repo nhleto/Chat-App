@@ -1,7 +1,15 @@
 <div class="rooms box">
   <h3 class="title is-3">All Rooms</h3>
-    <% @rooms.each do |room| %>
+    <% @rooms.each do |room| %> 
       <div class="room-title <%= picked_room(room) %>">
+      <% if current_user.id == room.owner_id && room.id != Room.first.id %>
+        <div class='ellipsis'>
+          <span class='accordion1' style='padding:0 5px 5px 5px'>&#8230;</span>
+          <%= link_to room_path(room), method: :delete do %>
+            <button class="button is-warning is-light is-small is-outlined panel1" style='top:30px;'>Destroy</button>
+          <% end %>
+        </div>
+      <% end %>         
         <%= link_to room_path(room), data: { turbolinks: "false" } do %>
           <h5 class="title is-5 mb-0"><%= room.name %></h5>
           <% unless room.name == 'Home Room' %>

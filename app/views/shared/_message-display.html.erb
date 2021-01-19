@@ -1,5 +1,8 @@
 <div class="room ml-3 mr-3">
-  <h2 class="title is-2 mb-0 is-flex is-justify-content-center room-name">Welcome to:&nbsp;&nbsp;<span class='room-name-squid'><%= @room.name %></span></h2>
+  <div class="room-name">
+    <h2 class="title is-2 mb-0">Welcome to:&nbsp;&nbsp;</h2>
+    <span class='room-name-squid title is-2'><%= @room.name %></span>
+  </div>
   <div class='box mb-1' id="message-display">
     <% if @messages %>
       <% @messages.each do |message| %>
