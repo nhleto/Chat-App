@@ -183,6 +183,8 @@ a:hover{
   cursor: pointer;
   border-left: 1px solid silver;
   border-right: 1px solid silver;
+  display: flex;
+  align-items: baseline;
 }
 
 .dropdown{
@@ -309,4 +311,10 @@ a:hover{
   right: 0px;
   font-size: 25px;
   display: block;
+}
+
+.gravatar{
+  border-radius: 50%;
+  border: 1px solid gray;
+  height: 1.5em;
 }

@@ -8,8 +8,9 @@
       <% @messages.each do |message| %>
         <article class="message">
           <div class="message-header">
+            <span class='mr-2' style='margin-top:7px'><%= user_avatar(current_user, 25, 'border:1px solid #68c3cc') %></span>
             <%= message.user.username %>
-            <div class="time">
+            <div class="time mt-1">
               <%= distance_of_time_in_words(message.created_at, Time.now) %> ago
             </div>
           </div>

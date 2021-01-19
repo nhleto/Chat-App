@@ -7,6 +7,7 @@
     <% if user_signed_in? %>
       <div class="dropdown">
         <div class="navbar-item dropbtn">
+          <span class='mr-2'><%= user_avatar(current_user, 50, 'height: 2em') %></span>
           <h3 class="title is-3"><%= current_user.username %><i class="fa fa-caret-down ml-3"></i></h3>
         </div>
         <div class="dropdown-content" id='myDropdown'>
