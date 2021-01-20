@@ -1,6 +1,6 @@
 <div>
   <%= simple_form_for([@room, @message]) do |f| %>
-    <div class="field has-addons" style='align-items:flex-end'>
+    <div class="field has-addons" style='align-items:flex-end;margin-bottom:20px;'>
       <div class="control mt-3">
         <%= f.input :body, 
             input_html: { id: 'message-input', class: 'input' },
