@@ -118,10 +118,12 @@ document.addEventListener('turbolinks:load', () => {
 
   if (document.querySelector('.submitter')){
     document.querySelector('.submitter').addEventListener('click', ()=> {
+      const chatWindow = document.querySelector('#message-display')
+      let xH = chatWindow.scrollHeight; 
+      chatWindow.scrollTo(0, xH);
+
       setTimeout(() => {
-        const messages = document.querySelector('#message-display')
         let input = document.querySelector('#message-input')
-        messages.scrollTop = messages.scrollHeight
         input.value = ''
       }, 100);
     })
