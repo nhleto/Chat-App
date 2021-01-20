@@ -3,9 +3,9 @@
   <h3 class="title is-3 ml-5 mb-5">All Rooms</h3>
   <% @rooms.each do |room| %>
     <% if current_user.id == room.owner_id && room.id != Room.first.id %>
-      <div class='mr-2' style='float:right;'>
-        <span class='accordion1 p-2'>&#8230;</span>
-        <%= link_to room_path(room), method: :delete do %>
+      <div class='mr-2 room-key' style='float:right;'>
+        <span class='accordion1 p-2 ellipsis2'>&#8230;</span>
+        <%= link_to room_path(room), id: 'delete-button', method: :delete do %>
           <button class="button is-warning is-light is-small is-outlined panel1">Destroy</button>
         <% end %>
       </div>

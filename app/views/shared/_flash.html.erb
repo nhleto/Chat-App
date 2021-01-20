@@ -1,4 +1,4 @@
-<% if flash[:notice] %>
+<% if flash[:notice] && flash[:notice] != '' %>
   <div class="odin-test">
     <div class="notification is-primary is-light">
       <p class="notice" style='display:flex;justify-content:space-between'>
@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<% if flash[:alert] %>
+<% if flash[:alert] && flash[:alert] != '' %>
   <div class="container odin-test">
     <div class="notification is-danger is-light">
       <p class="notice">

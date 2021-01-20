@@ -29,8 +29,15 @@ document.addEventListener('turbolinks:load', () => {
 
   function dropdown(event){
     event.stopPropagation();
-    document.querySelector('.dropdown-items').classList.toggle('show')
-    document.querySelector('.dropdown-content').classList.toggle('show')
+    let items = document.querySelector('.dropdown-items')
+    let content = document.querySelector('.dropdown-content')
+    items.classList.toggle('show')
+    content.classList.toggle('show')
+    if (items.style.display == 'flex'){
+      items.style.display = 'none'
+    } else {
+      items.style.display = 'flex'
+    }
   }
 
   function rotate(event){
@@ -38,14 +45,18 @@ document.addEventListener('turbolinks:load', () => {
     document.querySelector('.fa-caret-down').classList.toggle('down')
   }
 
-  document.querySelector('.dropbtn').addEventListener('click', dropdown)
-  document.querySelector('.dropbtn').addEventListener('click', rotate)
+  if ( document.querySelector('.dropbtn')){
+    document.querySelector('.dropbtn').addEventListener('click', dropdown)
+    document.querySelector('.dropbtn').addEventListener('click', rotate)
+  }
 
-  window.onclick = function(event) {
-    document.querySelector(".fa-caret-down").classList.remove("down")
-    document.getElementById("myDropdown").classList.remove("show")
-    document.querySelector('.dropdown-items').classList.remove('show')
-  };
+  if (document.querySelector(".fa-caret-down")){
+    window.onclick = function(event) {
+      document.querySelector(".fa-caret-down").classList.remove("down")
+      document.getElementById("myDropdown").classList.remove("show")
+      document.querySelector('.dropdown-items').classList.remove('show')
+    };
+  }
 
   let acc = document.getElementsByClassName("accordion");
   let panel = document.getElementsByClassName('panel');
@@ -105,10 +116,27 @@ document.addEventListener('turbolinks:load', () => {
     accordion.addEventListener('click', closeRoomText)
   }
 
-  document.querySelector('.submitter').addEventListener('click', ()=> {
-    setTimeout(() => {
-      let input = document.querySelector('#message-input')
-      input.value = ''
-    }, 100);
-  })
-});
+  if (document.querySelector('.submitter')){
+    document.querySelector('.submitter').addEventListener('click', ()=> {
+      setTimeout(() => {
+        const messages = document.querySelector('#message-display')
+        let input = document.querySelector('#message-input')
+        messages.scrollTop = messages.scrollHeight
+        input.value = ''
+      }, 100);
+    })
+  }
+
+  let ellipses = document.querySelector('.ellipsis2')
+  let deleteButton = document.querySelector('#delete-button')
+  if (ellipses){
+    ellipses.addEventListener('click', ()=>{
+      console.log(deleteButton)
+      if (deleteButton.style.display == 'block'){
+        deleteButton.style.display = 'none'
+      } else {
+        deleteButton.style.display = 'block'
+      }
+    })
+  }
+})

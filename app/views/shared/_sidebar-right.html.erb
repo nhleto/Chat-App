@@ -4,14 +4,14 @@
   <% if @users %>
     <% if @room.id == Room.first.id %>
       <% @all_users.each do |user| %>
-        <span class='center' style='display:flex'>
+        <span class='center user-<%= user.id %>-status-mobile' style='display:flex' id='mobile-bar'>
           <i class="fa fa-circle user-<%= user.id %>-status mr-1 <%= "online" if user.online %>"></i>
           <p><%= user.username %></p>
         </span>
       <% end %>
     <% else %>
       <% @users.uniq.each do |user| %>
-        <span class='center'>
+        <span class='center user-<%= user.id %>-status-mobile' id='mobile-bar'>
           <i class="fa fa-circle user-<%= user.id %>-status mr-1 <%= "online" if user.online %>"></i>
           <p><%= user.username %></p>
         </span>      

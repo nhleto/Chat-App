@@ -18,6 +18,15 @@
   .nav{
     margin: 0px;
   }
+  #delete-button{
+    display: none;
+  }
+  .room-key .panel1{
+    left: -100px;
+    &.show{
+      left: 175px;
+    }
+  }
   .picked{
     border-bottom: 1px solid silver;
     border-left: 1px solid silver;
@@ -193,12 +202,9 @@ a:hover{
 }
 
 .dropdown-content{
-  transition: .5s all ease-in-out;
-  opacity: 0;
   position: absolute;
   min-width: 100%;
   max-height: 0px;
-  z-index: 1;
   background-color: transparent;
   border-left: 1px solid silver;
   border-right: 1px solid silver;
@@ -207,20 +213,24 @@ a:hover{
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, .9), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   padding: 0px;
   border-radius: 0 0 10px 10px;
+  background-color: #191919;
 }
 
 .dropdown-items{
   transition: .3s all ease-in-out;
   font-size: 20px;
   border-radius: 0 0 10px 10px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   opacity: 0;
   min-width: 100%;
   max-height: 0px;
   &.show{
+    display: flex;
+    opacity: 1;
     padding: 10px;
+    border-top: 1px solid silver;
   }
 }
 
@@ -234,9 +244,9 @@ a:hover{
 }
 
 .fa-caret-down{
-  -moz-transition: all .5s linear;
-  -webkit-transition: all .5s linear;
-  transition: all .5s linear;
+  -moz-transition: all .25s linear;
+  -webkit-transition: all .25s linear;
+  transition: all .25s linear;
   font-size: 25px;
 }
 
@@ -283,9 +293,9 @@ a:hover{
   max-height: 0;
   overflow: hidden;
   transition: 0.4s ease-in-out;
-  opacity: 0;
   position: absolute;
-  z-index: 0;
+  z-index: -1;
+  opacity: 0;
   width: 5em;
   right: 35px;
 }
@@ -297,6 +307,7 @@ a:hover{
   width: 100%;
   width: 5em;
   right: 35px;
+  z-index: 1;
 }
 
 .accordion, .accordion1{
@@ -306,7 +317,6 @@ a:hover{
 
 .ellipsis{
   position: absolute;
-  z-index: 3;
   top: -20px;
   right: 0px;
   font-size: 25px;
