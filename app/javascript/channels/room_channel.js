@@ -20,14 +20,6 @@ document.addEventListener('turbolinks:load', ()=>{
       const messageDisplay = document.querySelector('#message-display')
       messageDisplay.insertAdjacentHTML('afterbegin', this.template(data))
 
-      if (document.querySelector('.submitter')){
-        document.querySelector('.submitter').addEventListener('click', ()=> {
-          const chatWindow = document.querySelector('#message-display')
-          let xH = chatWindow.scrollHeight; 
-          chatWindow.scrollTo(0, xH);
-        })
-      }
-
       if (document.querySelector(`.room-${data.room.id}-members`)){
         let memberNums = parseInt(document.querySelector(`.room-${data.room.id}-members`).innerHTML.match(/\d+/))
         if (data.users.length !== memberNums){

@@ -118,16 +118,25 @@ document.addEventListener('turbolinks:load', () => {
 
   if (document.querySelector('.submitter')){
     document.querySelector('.submitter').addEventListener('click', ()=> {
-      const chatWindow = document.querySelector('#message-display')
-      let xH = chatWindow.scrollHeight; 
-      chatWindow.scrollTo(0, xH);
-
       setTimeout(() => {
         let input = document.querySelector('#message-input')
         input.value = ''
       }, 100);
     })
   }
+
+  if (document.querySelector('.submitter')){
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelector('.submitter').addEventListener('click', ()=> {
+        const chatWindow = document.querySelector('#message-display')
+        let xH = chatWindow.scrollHeight;
+        setTimeout(() => {
+          chatWindow.scrollTo(0, xH);
+        }, 250); 
+      })
+    })
+  }
+
 
   let ellipses = document.querySelector('.ellipsis2')
   let deleteButton = document.querySelector('#delete-button')
