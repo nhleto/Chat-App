@@ -4,5 +4,5 @@ GravatarImageTag.configure do |config|
   config.include_size_attributes = nil
   config.rating                  = nil
   config.size                    = nil
-  config.secure                  = false
+  config.secure                  = true
 end

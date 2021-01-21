@@ -122,7 +122,8 @@ document.addEventListener('turbolinks:load', () => {
         let input = document.querySelector('#message-input')
         input.value = ''
       }, 100);
-    })
+      e.stopPropagation();
+    }) 
   }
 
   if (document.querySelector('.submitter')){

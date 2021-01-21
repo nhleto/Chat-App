@@ -10,6 +10,6 @@ module ApplicationHelper
   end
 
   def user_avatar(user, size, style)
-    gravatar_image_tag(user.username, size: size, class: 'gravatar', style: "#{style}")
+    gravatar_image_tag(user.username, secure: true, size: size, class: 'gravatar', style: "#{style}")
   end
 end
