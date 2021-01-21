@@ -19,8 +19,6 @@ require("channels")
 
 
 document.addEventListener('turbolinks:load', () => {
-  window.alert = function() { };
-  
   (document.querySelectorAll('.odin-test .notification') || []).forEach(($delete) => {
     let $notification = $delete.parentNode;
 
