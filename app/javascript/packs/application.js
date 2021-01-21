@@ -117,12 +117,11 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   if (document.querySelector('.submitter')){
-    document.querySelector('.submitter').addEventListener('click', (e)=> {
+    document.querySelector('.submitter').addEventListener('click', ()=> {
       setTimeout(() => {
         let input = document.querySelector('#message-input')
         input.value = ''
       }, 100);
-      e.stopPropagation();
     }) 
   }
 
