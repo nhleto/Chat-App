@@ -9,7 +9,10 @@
             placeholder: 'Say something!' %>
       </div>
       <div class="control">
-        <button class="button is-primary is-outlined submitter" style='width:8em'>Send Message</button>
+        <%= f.button :submit,
+            data: { disable_with: false },
+            class: 'button is-primary is-outlined submitter',
+            style: 'width: 8em;' %>
       </div>
     </div>
   <% end %>
