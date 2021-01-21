@@ -123,7 +123,6 @@ document.addEventListener('turbolinks:load', () => {
         input.value = ''
       }, 100);
     })
-    return false;
   }
 
   if (document.querySelector('.submitter')){
