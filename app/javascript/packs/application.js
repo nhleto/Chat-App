@@ -155,16 +155,16 @@ document.addEventListener('turbolinks:load', () => {
   })
 
 
-  // if (document.querySelector('.submitter')){
-  //   document.querySelector('.submitter').addEventListener('click', ()=> {
-  //     const chatWindow = document.querySelector('#message-display')
-  //     let xH = chatWindow.scrollHeight;
-  //     setTimeout(() => {
-  //       chatWindow.scrollTo(0, xH);
-  //       console.log('hey')
-  //     }, 125);
-  //   })
-  // }
+  if (document.querySelector('.submitter')){
+    document.querySelector('.submitter').addEventListener('click', ()=> {
+      const chatWindow = document.querySelector('#message-display')
+      let xH = chatWindow.scrollHeight;
+      setTimeout(() => {
+        chatWindow.scrollTo(0, xH);
+        console.log('hey')
+      }, 250);
+    })
+  }
 
   let ellipses = document.querySelector('.ellipsis2')
   let deleteButton = document.querySelector('#delete-button')

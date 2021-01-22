@@ -68,7 +68,7 @@ document.addEventListener('turbolinks:load', ()=>{
         setTimeout(() => {
           console.log('howdy')
           chatWindow.scrollTo(0, height);
-        }, 125);
+        }, 250);
       })
     }
   }
