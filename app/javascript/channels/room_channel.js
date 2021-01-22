@@ -37,7 +37,7 @@ document.addEventListener('turbolinks:load', ()=>{
                   <p>${data.user.username}</p>
                   <p class='time mt-1'>${moment(this.textContent).fromNow()}</p>
                 </div>
-                <div class="message-body ml-1 mb-3">
+                <div class="message-body ml-1">
                   <p>${data.message.body}</p>
                 </div>
               </article>`

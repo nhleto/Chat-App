@@ -156,14 +156,12 @@ document.addEventListener('turbolinks:load', () => {
 
 
   if (document.querySelector('.submitter')){
-    document.addEventListener('DOMContentLoaded', ()=>{
-      document.querySelector('.submitter').addEventListener('click', ()=> {
-        const chatWindow = document.querySelector('#message-display')
-        let xH = chatWindow.scrollHeight;
-        setTimeout(() => {
-          chatWindow.scrollTo(0, xH);
-        }, 125); 
-      })
+    document.querySelector('.submitter').addEventListener('click', ()=> {
+      const chatWindow = document.querySelector('#message-display')
+      let xH = chatWindow.scrollHeight;
+      setTimeout(() => {
+        chatWindow.scrollTo(0, xH);
+      }, 125); 
     })
   }
 
