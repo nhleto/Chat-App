@@ -66,7 +66,6 @@ document.addEventListener('turbolinks:load', ()=>{
         const chatWindow = document.querySelector('#message-display')
         let height = chatWindow.scrollHeight;
         setTimeout(() => {
-          console.log('howdy')
           chatWindow.scrollTo(0, height);
         }, 250);
       })
