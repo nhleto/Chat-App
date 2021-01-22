@@ -151,7 +151,7 @@ document.addEventListener('turbolinks:load', () => {
         image.remove()
       }
     });
-    }, 125)
+    }, 250)
   })
 
 
