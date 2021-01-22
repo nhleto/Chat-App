@@ -161,7 +161,6 @@ document.addEventListener('turbolinks:load', () => {
       let xH = chatWindow.scrollHeight;
       setTimeout(() => {
         chatWindow.scrollTo(0, xH);
-        console.log('hey')
       }, 250);
     })
   }

@@ -19,6 +19,7 @@ document.addEventListener('turbolinks:load', ()=>{
       let roomsBox = document.querySelector('.rooms.box.left .center')
       const messageDisplay = document.querySelector('#message-display')
       messageDisplay.insertAdjacentHTML('afterbegin', this.template(data))
+      scrollDown();
 
       if (document.querySelector(`.room-${data.room.id}-members`)){
         let memberNums = parseInt(document.querySelector(`.room-${data.room.id}-members`).innerHTML.match(/\d+/))
@@ -27,7 +28,6 @@ document.addEventListener('turbolinks:load', ()=>{
           roomsBox.insertAdjacentHTML('afterend', this.template2(data))
         }
       }
-      scrollDown();
     },
     template(data) {
       return `<article class="message mb-2">
