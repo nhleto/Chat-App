@@ -154,17 +154,6 @@ document.addEventListener('turbolinks:load', () => {
     }, 250)
   })
 
-
-  if (document.querySelector('.submitter')){
-    document.querySelector('.submitter').addEventListener('click', ()=> {
-      const chatWindow = document.querySelector('#message-display')
-      let xH = chatWindow.scrollHeight;
-      setTimeout(() => {
-        chatWindow.scrollTo(0, xH);
-      }, 125); 
-    })
-  }
-
   let ellipses = document.querySelector('.ellipsis2')
   let deleteButton = document.querySelector('#delete-button')
   if (ellipses){
