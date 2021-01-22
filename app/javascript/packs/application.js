@@ -127,7 +127,8 @@ document.addEventListener('turbolinks:load', () => {
 
   document.querySelector('.submitter').addEventListener('click', ()=>{
     setTimeout(() => {
-      let img = document.querySelector('.image-base').src
+      let imgSRC = document.querySelector('.image-base').src
+      let image = document.querySelector('.image-base')
 
       function toDataUrl(url, callback) {
         let xhr = new XMLHttpRequest();
@@ -142,10 +143,12 @@ document.addEventListener('turbolinks:load', () => {
         xhr.responseType = 'blob';
         xhr.send();
     }
-    toDataUrl(img, function(myBase64) {
-      let newImage  = document.createElement('img');
-      newImage.src = myBase64
-      document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
+    toDataUrl(imgSRC, function(myBase64) {
+      if (image.width < 25){
+        let newImage  = document.createElement('img');
+        newImage.src = myBase64
+        document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
+      }
     });
     }, 125)
   })
