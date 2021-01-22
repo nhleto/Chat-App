@@ -27,6 +27,7 @@ document.addEventListener('turbolinks:load', ()=>{
           roomsBox.insertAdjacentHTML('afterend', this.template2(data))
         }
       }
+      scrollDown();
     },
     template(data) {
       return `<article class="message mb-2">
@@ -56,6 +57,19 @@ document.addEventListener('turbolinks:load', ()=>{
       let y = x.shift()
       let j = parseInt(x.join(''))
       return j
+    }
+  }
+
+  function scrollDown(){
+    if (document.querySelector('.submitter')){
+      document.querySelector('.submitter').addEventListener('click', ()=> {
+        const chatWindow = document.querySelector('#message-display')
+        let height = chatWindow.scrollHeight;
+        setTimeout(() => {
+          console.log('howdy')
+          chatWindow.scrollTo(0, height);
+        }, 125);
+      })
     }
   }
 })
