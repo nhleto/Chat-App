@@ -148,6 +148,7 @@ document.addEventListener('turbolinks:load', () => {
         let newImage  = document.createElement('img');
         newImage.src = myBase64
         document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
+        image.remove()
       }
     });
     }, 125)
