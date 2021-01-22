@@ -32,7 +32,7 @@ document.addEventListener('turbolinks:load', ()=>{
       return `<article class="message mb-2">
                 <div class="message-header">
                   <span class='mr-2' style='margin-top:7px'>
-                    <img style='border:1px solid #68c3cc;border-radius:50%' src="${gravatar.url(data.user.username, {s: '28', d: 'retro'})}"></img>
+                    <img class='image-base' src=${gravatar.url(data.user.username, { s: '28', d: 'retro' })}></img>
                   </span>
                   <p>${data.user.username}</p>
                   <p class='time mt-1'>${moment(this.textContent).fromNow()}</p>
@@ -49,7 +49,7 @@ document.addEventListener('turbolinks:load', ()=>{
               </span>`
     }
   });
-  
+
   function parseURL(){
     if (window.location.href.match(/\/\d+/)){
       let x = window.location.href.match(/\/\d+/).join().split('')
