@@ -163,7 +163,6 @@ document.addEventListener('turbolinks:load', () => {
     })
   }
 
-
   let ellipses = document.querySelector('.ellipsis2')
   let deleteButton = document.querySelector('#delete-button')
   if (ellipses){
