@@ -126,6 +126,32 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }
 
+  document.querySelector('.submitter').addEventListener('click', ()=>{
+    setTimeout(() => {
+      let img = document.querySelector('.image-base').src
+
+      function toDataUrl(url, callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            let reader = new FileReader();
+            reader.onloadend = function() {
+                callback(reader.result);
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+        xhr.open('GET', url);
+        xhr.responseType = 'blob';
+        xhr.send();
+    }
+    toDataUrl(img, function(myBase64) {
+      let newImage  = document.createElement('img');
+      newImage.src = myBase64
+      document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
+    });
+    }, 125)
+  })
+
+
   if (document.querySelector('.submitter')){
     document.addEventListener('DOMContentLoaded', ()=>{
       document.querySelector('.submitter').addEventListener('click', ()=> {
@@ -133,7 +159,7 @@ document.addEventListener('turbolinks:load', () => {
         let xH = chatWindow.scrollHeight;
         setTimeout(() => {
           chatWindow.scrollTo(0, xH);
-        }, 250); 
+        }, 125); 
       })
     })
   }
