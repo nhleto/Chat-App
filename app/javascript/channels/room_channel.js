@@ -29,8 +29,7 @@ document.addEventListener('turbolinks:load', ()=>{
       }
       let messageBody = document.querySelector(`.inserted-${data.message.id}`)
       messageBody.scrollIntoView()
-      
-      setTimeout(() => {
+
         console.log('hey')
         let imgSRC = document.querySelector('.image-base').src
         let image = document.querySelector('.image-base')
@@ -56,7 +55,6 @@ document.addEventListener('turbolinks:load', ()=>{
           image.remove()
         }
       });
-      }, 250)
     },
     template(data) {
       return `<article class="message mb-2">
