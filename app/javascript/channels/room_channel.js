@@ -19,8 +19,7 @@ document.addEventListener('turbolinks:load', ()=>{
       let roomsBox = document.querySelector('.rooms.box.left .center')
       const messageDisplay = document.querySelector('#message-display')
       messageDisplay.insertAdjacentHTML('afterbegin', this.template(data))
-      scrollDown();
-
+    
       if (document.querySelector(`.room-${data.room.id}-members`)){
         let memberNums = parseInt(document.querySelector(`.room-${data.room.id}-members`).innerHTML.match(/\d+/))
         if (data.users.length !== memberNums){
@@ -28,6 +27,8 @@ document.addEventListener('turbolinks:load', ()=>{
           roomsBox.insertAdjacentHTML('afterend', this.template2(data))
         }
       }
+      let messageBody = document.querySelector(`.inserted-${data.message.id}`)
+      messageBody.scrollIntoView()
     },
     template(data) {
       return `<article class="message mb-2">
@@ -38,7 +39,7 @@ document.addEventListener('turbolinks:load', ()=>{
                   <p>${data.user.username}</p>
                   <p class='time mt-1'>${moment(this.textContent).fromNow()}</p>
                 </div>
-                <div class="message-body ml-1">
+                <div class="message-body ml-1 inserted-${data.message.id}">
                   <p>${data.message.body}</p>
                 </div>
               </article>`
@@ -57,18 +58,6 @@ document.addEventListener('turbolinks:load', ()=>{
       let y = x.shift()
       let j = parseInt(x.join(''))
       return j
-    }
-  }
-
-  function scrollDown(){
-    if (document.querySelector('.submitter')){
-      document.querySelector('.submitter').addEventListener('click', ()=> {
-        const chatWindow = document.querySelector('#message-display')
-        let height = chatWindow.scrollHeight;
-        setTimeout(() => {
-          chatWindow.scrollTo(0, height);
-        }, 250);
-      })
     }
   }
 })
