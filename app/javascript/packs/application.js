@@ -125,34 +125,34 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }
 
-  document.querySelector('.submitter').addEventListener('click', ()=>{
-    setTimeout(() => {
-      let imgSRC = document.querySelector('.image-base').src
-      let image = document.querySelector('.image-base')
+  // document.querySelector('.submitter').addEventListener('click', ()=>{
+  //   setTimeout(() => {
+  //     let imgSRC = document.querySelector('.image-base').src
+  //     let image = document.querySelector('.image-base')
 
-      function toDataUrl(url, callback) {
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            let reader = new FileReader();
-            reader.onloadend = function() {
-                callback(reader.result);
-            }
-            reader.readAsDataURL(xhr.response);
-        };
-        xhr.open('GET', url);
-        xhr.responseType = 'blob';
-        xhr.send();
-    }
-    toDataUrl(imgSRC, function(myBase64) {
-      if (image.width < 25){
-        let newImage  = document.createElement('img');
-        newImage.src = myBase64
-        document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
-        image.remove()
-      }
-    });
-    }, 250)
-  })
+  //     function toDataUrl(url, callback) {
+  //       let xhr = new XMLHttpRequest();
+  //       xhr.onload = function() {
+  //           let reader = new FileReader();
+  //           reader.onloadend = function() {
+  //               callback(reader.result);
+  //           }
+  //           reader.readAsDataURL(xhr.response);
+  //       };
+  //       xhr.open('GET', url);
+  //       xhr.responseType = 'blob';
+  //       xhr.send();
+  //   }
+  //   toDataUrl(imgSRC, function(myBase64) {
+  //     if (image.width < 25){
+  //       let newImage  = document.createElement('img');
+  //       newImage.src = myBase64
+  //       document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
+  //       image.remove()
+  //     }
+  //   });
+  //   }, 250)
+  // })
 
 
   // if (document.querySelector('.submitter')){
