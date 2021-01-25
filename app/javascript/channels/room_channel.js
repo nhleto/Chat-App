@@ -27,11 +27,17 @@ document.addEventListener('turbolinks:load', ()=>{
           roomsBox.insertAdjacentHTML('afterend', this.template2(data))
         }
       }
-      let messageBody = document.querySelector(`.inserted-${data.message.id}`)
-      messageBody.scrollIntoView()
+
+      if (messageDisplay.scrollTop + messageDisplay.clientHeight === messageDisplay.clientHeight){
+        let messageBody = document.querySelector(`.inserted-${data.message.id}`)
+        let form = document.querySelector('.field.has-addons')
+        messageBody.scrollIntoView({block: 'end', inline: 'end'})
+        form.scrollIntoView()
+        messageDisplay.scrollTo(0, messageBody.getBoundingClientRect().top)
+      }
     },
     template(data) {
-      return `<article class="message mb-2">
+      return `<article class="message mb-2" style='scroll-padding-top:500px'>
                 <div class="message-header">
                   <span class='mr-2' style='margin-top:7px'>
                     <img class='image-base gravatar' src=${gravatar.url(data.user.username, { s: '28', d: 'retro' })}></img>

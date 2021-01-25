@@ -155,15 +155,15 @@ document.addEventListener('turbolinks:load', () => {
   })
 
 
-  // if (document.querySelector('.submitter')){
-  //   document.querySelector('.submitter').addEventListener('click', ()=> {
-  //     const chatWindow = document.querySelector('#message-display')
-  //     let xH = chatWindow.scrollHeight;
-  //     setTimeout(() => {
-  //       chatWindow.scrollTo(0, xH);
-  //     }, 250);
-  //   })
-  // }
+  if (document.querySelector('.submitter')){
+    document.querySelector('.submitter').addEventListener('click', ()=> {
+      const chatWindow = document.querySelector('#message-display')
+      let xH = chatWindow.scrollHeight;
+      setTimeout(() => {
+        chatWindow.scrollTo(0, xH);
+      }, 150);
+    })
+  }
 
   let ellipses = document.querySelector('.ellipsis2')
   let deleteButton = document.querySelector('#delete-button')
