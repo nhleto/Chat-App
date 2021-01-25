@@ -1,5 +1,5 @@
 <div>
-  <%= simple_form_for([@room, @message]) do |f| %>
+  <%= simple_form_for([@room, @message], remote: :true) do |f| %>
     <div class="field has-addons" style='align-items:flex-end;margin-bottom:20px;'>
       <div class="control mt-3">
         <%= f.input :body, 
