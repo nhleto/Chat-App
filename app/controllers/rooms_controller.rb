@@ -1,12 +1,5 @@
 class RoomsController < ApplicationController
-  def index
-    @room = Room.find(params[:id])
-    @message = @room.messages.build
-    @messages = Message.includes(:user).where(room_id: nil).reverse_order
-    @rooms = Room.includes(:users)
-    @room = Room.new
-    @users = User.all.order('online DESC NULLS LAST')
-  end
+  def index; end
 
   def create
     @room = current_user.rooms.build(room_params)
@@ -25,7 +18,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @rooms = Room.includes(:users)
     @message = Message.new
-    @messages = @room.messages.where(room_id: @room.id).reverse_order
+    @messages = @room.messages.where(room_id: @room.id).last(75).reverse
     @users = @room.users.order('online DESC NULLS LAST')
     @all_users = User.all.order('online DESC NULLS LAST')
   end
