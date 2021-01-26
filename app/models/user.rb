@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :username, presence: { message: 'Please provide a username...' },
                        uniqueness: { message: 'That name is already in use' }
 
+  validates_confirmation_of :password
+
   def is_online
     update(online: true)
   end
