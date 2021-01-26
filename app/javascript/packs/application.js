@@ -177,4 +177,9 @@ document.addEventListener('turbolinks:load', () => {
       }
     })
   }
+
+  let sidebars = document.querySelectorAll('#mySidebar, #mySidebar2')
+  sidebars.forEach(elem => {
+    elem.style.height = `${screen.height}px`
+  });
 })
