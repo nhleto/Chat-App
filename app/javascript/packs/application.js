@@ -125,35 +125,36 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }
 
-  document.querySelector('.submitter').addEventListener('click', ()=>{
-    setTimeout(() => {
-      let imgSRC = document.querySelector('.image-base').src
-      let image = document.querySelector('.image-base')
+  if (document.querySelector('.submitter')){
+    document.querySelector('.submitter').addEventListener('click', ()=>{
+      setTimeout(() => {
+        let imgSRC = document.querySelector('.image-base').src
+        let image = document.querySelector('.image-base')
 
-      function toDataUrl(url, callback) {
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            let reader = new FileReader();
-            reader.onloadend = function() {
-                callback(reader.result);
-            }
-            reader.readAsDataURL(xhr.response);
-        };
-        xhr.open('GET', url);
-        xhr.responseType = 'blob';
-        xhr.send();
-    }
-    toDataUrl(imgSRC, function(myBase64) {
-      if (image.width < 25){
-        let newImage  = document.createElement('img');
-        newImage.src = myBase64
-        document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
-        image.remove()
+        function toDataUrl(url, callback) {
+          let xhr = new XMLHttpRequest();
+          xhr.onload = function() {
+              let reader = new FileReader();
+              reader.onloadend = function() {
+                  callback(reader.result);
+              }
+              reader.readAsDataURL(xhr.response);
+          };
+          xhr.open('GET', url);
+          xhr.responseType = 'blob';
+          xhr.send();
       }
-    });
-    }, 150)
-  })
-
+      toDataUrl(imgSRC, function(myBase64) {
+        if (image.width < 25){
+          let newImage  = document.createElement('img');
+          newImage.src = myBase64
+          document.querySelector('.message-header').insertAdjacentElement('afterbegin', newImage).classList.add('gravatar')
+          image.remove()
+        }
+      });
+      }, 150)
+    })
+  }
 
   if (document.querySelector('.submitter')){
     document.querySelector('.submitter').addEventListener('click', ()=> {
@@ -182,4 +183,13 @@ document.addEventListener('turbolinks:load', () => {
   sidebars.forEach(elem => {
     elem.style.height = `${screen.height}px`
   });
+
+  let guestButton = document.querySelector('#guest-button')
+  let inputForms = document.querySelectorAll('#user_username, #user_password')
+  if (guestButton){
+    guestButton.addEventListener('click', ()=>{
+      inputForms[0].value = 'guest@guest.com'
+      inputForms[1].value = 'password'
+    })    
+  }
 })
