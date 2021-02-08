@@ -1,15 +1,15 @@
 <h1>All Chat</h1>
 
-          <p>
-            All Chat is written with Ruby on Rails and built to utilize Action Cable, Rails' WebSocket wrapper. 
-            In addition to handrolled CSS, I used Bulma CSS for styling, and Javascript
-            to both bring the page to life, and program the WebSocket actions.
-          </p>
-          <p>
-            All Chat uses WebSockets to keep an open connection between clients and the server, allowing users
-            to stream data directly to each other. I used All Chat highlight the versatility and 
-            practicality of WebSockets by showing off their use in an instant messaging app.
-          </p>
+<p>
+  All Chat is written with Ruby on Rails and built to utilize Action Cable, Rails' WebSocket wrapper. 
+  In addition to handrolled CSS, I used Bulma CSS for styling, and Javascript
+  to both bring the page to life, and program the WebSocket actions.
+</p>
+<p>
+  All Chat uses WebSockets to keep an open connection between clients and the server, allowing users
+  to stream data directly to each other. I used All Chat highlight the versatility and 
+  practicality of WebSockets by showing off their use in an instant messaging app.
+</p>
 
 
 ![Screenshot (9)](https://user-images.githubusercontent.com/68115763/103695312-5409fb00-4f6a-11eb-89dd-017bdfec881a.png)
